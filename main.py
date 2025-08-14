@@ -6,10 +6,10 @@ from report_builder import parse_csv
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-def runprocmon(duration=30):
+def runprocmon():
     print("[*] Starting Procmon capture...")
     # run_procmon.bat lives next to this script; use relative call
-    subprocess.run(["cmd", "/c", "run_procmon.bat", str(duration)], shell=True)
+    subprocess.run(["cmd", "/c", "run_procmon.bat", str()], shell=True)
     print("[*] Procmon capture finished.")
 
 if __name__ == "__main__":
@@ -21,7 +21,7 @@ if __name__ == "__main__":
         # Start the sample, then capture via Procmon for <duration> seconds
         run_sample(malwarepath)
 
-    runprocmon(30)
+    runprocmon()
 
     if convert():
         report = parse_csv()
